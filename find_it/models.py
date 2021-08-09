@@ -13,14 +13,14 @@ class EntrepriseParticulier(models.Model):
     adresse = models.CharField( max_length=254, null=True)  # Field name made lowercase.
     #email = models.EmailField( max_length=256)  # Field name made lowercase.
     #password = models.CharField( max_length=256)  # Field name made lowercase.
-
+    domaine = models.CharField(max_length=254,null=True)
+    def __str__(self): 
+      return self.user.username
 
 class ItWorker(models.Model):
     # id_itworker = models.IntegerField(db_column='ID_ITWORKER')  # Field name made lowercase.
-    prenom = models.CharField( max_length=254) 
-    nom = models.CharField( max_length=254)  # Field name made lowercase.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    domaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','cybersecuriter')])
+    domaine = models.CharField(max_length=254,null=True)
     competence = models.CharField(max_length=254)  # Field name made lowercase.
     sexe = models.CharField( max_length=254, null=True) 
     image = models.ImageField(upload_to='uploads',null=True) 

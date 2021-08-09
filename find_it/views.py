@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
 from .models import *
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.http import request
-from .forms import ITform,Uform,PEform
+from django.contrib.auth.decorators import login_required
+from .forms import ITform,Uform,PEform,pe_uform
 
 # Create your views here.
 
@@ -14,32 +16,56 @@ def index(request):
                      ]
     missions=Mission.objects.all()
     return render(request,'index.html',{'dommaine': dommaine,'missions':missions})
+
+
 #cette view revoi la page  registre.html
 def formRegistre(request):
     return render(request,'registre.html')
 
+
 #on s'occuppe du traitement des donnes de l'utilisateur 
 def form_treatment_utilisateur(request):
     errormessage="remplisser tous les champs"
-    it_form=ITform
-    it=ItWorker()
+    
     if request.method=='POST':
+        #on transfert les donnee au form
         it_form=ITform(request.POST,request.FILES)
-        
         u_form=Uform(request.POST)
-        errormessage="pas mmal"
+        
+        
+        #on verifie si les donne et les champs des form corresponde
         if it_form.is_valid() and u_form.is_valid():
-            errormessage="humm bien"
-            user=u_form.save()
-            user.set_password(user.password)
-            user.save()
-            itw = it_form.save(commit=False)
-            itw.user = user
-            errormessage="humm bien"
-            if 'image' in request.FILES:
-                itw.image=request.FILES['image']
-            itw.save()
-            return redirect('espaceIT')
+            #on verifie si l'email n'existe pas deja
+            email=request.POST['email']
+            user=User.objects.filter(email=email)
+            if not user.exists():
+                
+                #on sauvegarde ses donne
+                user=u_form.save()
+                #on enregistre lmot de passe
+                user.set_password(user.password)
+                #on enregistre le user
+                user.save()
+                #on passe les donne additionnel de l'it sanns l'enregisttrer
+                itw = it_form.save(commit=False)
+                #on passe le user pour enregistrer la clee etranger dan itworker
+                itw.user = user
+                itw.save()
+                
+                #on authenthifie l'itilisateur
+                # userit = authenticate(email=user.email, password=user.password)
+                
+                # #on verifie si elle n'est pas vide
+                # if userit is not None:
+                #     if userit.is_active:
+                #         #et on le connecte
+                #         login(request,userit)
+                return render(request,'espace.html',{'user':user})
+            else:
+                #si l'email existe on renvoie se message
+                errormessage="l'email existe deja"
+                return  render(request,'registre.html',{'errormessage':errormessage})
+            
     errormessage=it_form.errors
     return  render(request,'registre.html',{'errormessage':errormessage})
     
@@ -48,43 +74,63 @@ def form_treatment_utilisateur(request):
 
 #on s'occuppe du traitement des donnes de l'entreprise
 def form_treatment_EP(request):
-     #on recupere l'ensemble des donne
-    #on recupere l'ensemble des donne
-    userIT=Uform(instance=request.user)
-    newPE=PEform(instance=request.User.EntrepriseParticulier)
-    
-    if request.method=="POST" :
-      
-        userIT=Uform(request.POST,instance=request.user)
-        newPE=PEform(request.POST,request.FILES,instance=request.User.EntrepriseParticulier)
-        #on verifie les mot de passe
-        if request.POST['password']!=request.POST['passwordverif']:
-            errormessagepassword="les mot de passe ne sont pas identique"
-            return render(request,'registre.html',{'errormessagepassword':errormessagepassword})
-        #on verifie si l'email n'existe pas
-        newit=ItWorker.objects.filter(email=request.POST['email'])
-        if not newit.exists():
-            if userIT.is_valid() and newPE.is_valid():
-               # on enregistre les donnees
-                userIT.save()
-                newPE.save()
-            return redirect('espaceIT')
-        else:
-            errormessageemail ="ce email existe deja"
-            #on retourne au niveau du page de registe + le message d;erreur
-            return render(request,'registre.html',{'errormessage':errormessageemail})
-
-    #on retourne au niveau du page de registe + le message d;erreur
-    errormessage="remplisser tous les champs"
-    return  render(request,'registre.html',{'errormessage':errormessage})
+    errormessagePE="remplisser tous les champs"
+    if request.method=='POST':
+        #on transfert les donnee au form
+        PE_form=PEform(request.POST,request.FILES)
+        PEu_form=pe_uform(request.POST)
+        
+        #on verifie si les donne et les champs des form corresponde
+        if PE_form.is_valid() and PEu_form.is_valid():
+            #on verifie si l'email n'existe pas deja
+            email=request.POST['email']
+            user=User.objects.filter(email=email)
+            if not user.exists():
+                
+                #on sauvegarde ses donne
+                user=PEu_form.save()
+                #on enregistre lmot de passe
+                user.set_password(user.password)
+                #on enregistre le user
+                user.save()
+                #on passe les donne addPEionnel de l'PE sanns l'enregisttrer
+                PE_registe = PE_form.save(commit=False)
+                #on passe le user pour enregistrer la clee etranger dan PEworker
+                PE_registe.user = user
+                PE_registe.save()
+                
+                #on authenthifie l'itilisateur
+                # userit = authenticate(email=user.email, password=user.password)
+                
+                # #on verifie si elle n'est pas vide
+                # if userit is not None:
+                #     if userit.is_active:
+                #         #et on le connecte
+                #         login(request,userit)
+                return render(request,'espace.html',{'user':user})
+            else:
+                #si l'email existe on renvoie se message
+                errormessagePE="l'email existe deja"
+                return  render(request,'registre.html',{'errormessage':errormessagePE})
+            
+        errormessagePE=PE_form.errors
+    return  render(request,'registre.html',{'errormessage':errormessagePE})
 
 #gestion de l'espace de l'IT
-def espace_it(request):
-    
-    return render(request,'espace.html')
+def espace(request):
+    if request.method == 'POST':
+        #on extrait les donnee
+        username = request.POST['username']
+        password = request.POST['password']
+        #on authenthifie l'itilisateur
+        user = authenticate(username=username, password=password)
+        #on verifie si elle n'est pas vide
+        if user is not None:
+            if user.is_active:
+                #et on le connecte
+                login(request,user)
+                return render(request,'espace.html',{'user':user})
+    errormessage="non d'utilisateur ou mot de passe incorre"
+    return  render(request,'registre.html',{'errormessage':errormessage})
 
 
-#gestion de l'espace de l EP
-def espace_EP():
-    
-    return 

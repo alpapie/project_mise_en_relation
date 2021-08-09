@@ -9,6 +9,6 @@ urlpatterns=[
     path('Formregistre',views.formRegistre,name='Formregistre'),
     path('formEP',views.form_treatment_EP,name='formTraitEP'),
     path('formTraitUtil',views.form_treatment_utilisateur,name='formTraitUtil'),
-    path('espaceIT',views.espace_it,name='espaceIT'),
+    path('espace',views.espace,name='espace'),
 
 ]
