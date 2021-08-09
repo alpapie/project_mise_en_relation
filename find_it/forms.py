@@ -9,15 +9,22 @@ from django.contrib.auth.forms import UserCreationForm
 class Uform(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username','email','password']
+        fields = ['username','first_name','last_name','email','password']
         
 class ITform(forms.ModelForm):
     class Meta:
        model=ItWorker
-       fields=['nom','prenom','domaine','image','competence','sexe','date_naissance','description','adresse','numero_telephone']
+       fields=['domaine','image','competence','sexe','date_naissance','description','adresse','numero_telephone']
       
 
 class PEform(forms.ModelForm):
     class Meta:
        model=EntrepriseParticulier
-       fields=['nom','logo','description','adresse']
+       fields=['nom','logo','description','adresse','domaine']
+
+
+class pe_uform(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username','email','password']
+        
