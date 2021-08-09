@@ -1,34 +1,44 @@
     
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.dispatch import receiver #add this
+from django.db.models.signals import post_save #add this
 
 class EntrepriseParticulier(models.Model):
     # id_pe = models.IntegerField(db_column='ID_PE' ,)  # Field name made lowercase.
-    nom = models.CharField( max_length=254)  # Field name made lowercase.
-    dommaine = models.CharField( max_length=254)  # Field name made lowercase.
-    logo = models.ImageField(upload_to='uploads',null=True) 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)#nom = models.CharField( max_length=254)  # Field name made lowercase.
+    nom= models.CharField( max_length=254)  # Field name made lowercase.
+    logo = models.ImageField(upload_to='uploadslogo',null=True) 
     description = models.CharField( max_length=254)  # Field name made lowercase.
     adresse = models.CharField( max_length=254, null=True)  # Field name made lowercase.
-    email = models.EmailField( max_length=256)  # Field name made lowercase.
-    password = models.CharField( max_length=256)  # Field name made lowercase.
-
-
+    #email = models.EmailField( max_length=256)  # Field name made lowercase.
+    #password = models.CharField( max_length=256)  # Field name made lowercase.
 
 
 class ItWorker(models.Model):
     # id_itworker = models.IntegerField(db_column='ID_ITWORKER')  # Field name made lowercase.
+    prenom = models.CharField( max_length=254) 
     nom = models.CharField( max_length=254)  # Field name made lowercase.
-    dommaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','cybersecuriter')])
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    domaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','cybersecuriter')])
     competence = models.CharField(max_length=254)  # Field name made lowercase.
     sexe = models.CharField( max_length=254, null=True) 
     image = models.ImageField(upload_to='uploads',null=True) 
-    age = models.IntegerField()  # Field name made lowercase.
+    date_naissance= models.DateField(null=True)  # Field name made lowercase.
     description = models.CharField( max_length=254, null=True)  # Field name made lowercase.
     adresse = models.CharField( max_length=254, null=True)  # Field name made lowercase.
-    email = models.EmailField(max_length=255, null=True)
+    #email = models.EmailField(max_length=255, null=True)
     numero_telephone = models.CharField(max_length=20, null=True)
-    password = models.CharField(max_length=32) # Field name made lowercase.
-
+    def __str__(self): 
+      return self.user.username
+    #password = models.CharField(max_length=32) # Field name made lowercase.
+    # @receiver(post_save, sender=User) #add this
+    # def create_user_profile(sender, instance, created, **kwargs):
+    #     if created:
+    #         ItWorker.objects.create(user=instance)
+    # @receiver(post_save, sender=User) #add this
+    # def save_user_profile(sender, instance, **kwargs):
+    #     instance.itworker.save()
 
 
 

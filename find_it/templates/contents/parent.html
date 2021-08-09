@@ -4,15 +4,12 @@
 {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=" {% static 'css/style.css'%}">
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css'%}">
-    <title>find-it • Acceuil</title>
-   
-</head>
-<style>
-    .top-header {
-    background-image: url({% static 'image/header.png'%});
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <style>
+.top-header {
+    background-image: url( {% static 'image/header.png' %});
     height: 48px;
     background-size: 65%;
     width: auto;
@@ -34,7 +31,7 @@
         
             <button class="register btn btn-dark btn" style="font-size: 12px !important;">se connecter</button>
         </div>
-         <div class="col-2"> <a href="{% url 'registre'%}">
+         <div class="col-2"> <a href="{% url 'Formregistre' %}">
             <button class="register btn btn-dark btn" style="font-size: 12px !important;padding-lelft:15px">sign up </button>
         </a></div>
         

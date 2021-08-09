@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^x+w=)jg)u-^lb8zei2-l4)juj$wz5o4d$-=!e8s*b7q-g6*mv
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Application definition
 
@@ -119,6 +119,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+#AUTH_USER_MODEL = 'find_it.user'
+AUTH_PROFILE_MODULE = 'find_it.ItWorker'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

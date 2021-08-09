@@ -16,39 +16,39 @@
     <div class="content">
 <!--        nous sommes dans le formulaire pour it-worker je pense que c'est plutot parlant mais je voulais tout de meme l'ecrire pour plus de visiblité dans le code-->
 <!--        maintenant suis un pro :)-->
-        <form action="#">
+        <form action="formTraitUtil">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Prenom</span>
-                    <input type="text" placeholder="Entrer votre prenom" required>
+                    <input type="text" name="prenom" placeholder="Entrer votre prenom" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Nom</span>
-                    <input type="text" placeholder="Entrer votre nom" required>
+                    <input type="text" name="nom" placeholder="Entrer votre nom" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" placeholder="Entrer votre email" required>
+                    <input type="text" name="email" placeholder="Entrer votre email" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Numero de téléphone</span>
-                    <input type="text" placeholder="Entrer votre numero" required>
+                    <input type="text" name="numero_telephone" placeholder="Entrer votre numero" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>
-                    <input type="text" placeholder="Entrer votre mot de passe" required>
+                    <input type="password" name="password" placeholder="Entrer votre mot de passe" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Confirmer mot de passe</span>
-                    <input type="text" placeholder="Confirmer votre mot de passe" required>
+                    <input type="password" name="passwordverif" placeholder="Confirmer votre mot de passe" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">Age</span>
-                    <input type="number" placeholder="Entrer votre age" required>
+                    <span class="details">Date de naissance</span>
+                    <input type="date" name="datenaiss" placeholder="Entrer votre age" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Adresse</span>
-                    <input type="text" placeholder="Entrer votre adresse" required>
+                    <input type="text" name="adresse" placeholder="Entrer votre adresse" required>
                 </div>
 
             </div>
@@ -94,37 +94,37 @@ c'est en gros le formulaire pour les entreprises.
     </div>
 
     <div class="content">
-        <form action="#">
+        <form action="{% url 'formTraitEP' %}">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Nom</span>
-                    <input type="text" placeholder="Entrer le nom de vorte entreprise" required>
+                    <input type="text" name="nom" placeholder="Entrer le nom de vorte entreprise" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Domaine</span>
-                    <input type="text" placeholder="Entrer votre domaine" required>
+                    <input type="text" name="dommaine" placeholder="Entrer votre domaine" required>
                 </div>
 
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" placeholder="Entrer votre email" required>
+                    <input type="text" name="email" placeholder="Entrer votre email" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Numero de téléphone</span>
-                    <input type="text" placeholder="Entrer votre numero" required>
+                    <input type="text" name="numero_telephone" placeholder="Entrer votre numero" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>
-                    <input type="text" placeholder="Entrer votre mot de passe" required>
+                    <input type="text" name="password" placeholder="Entrer votre mot de passe" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Confirmer mot de passe</span>
-                    <input type="text" placeholder="Confirmer votre mot de passe" required>
+                    <input type="text" name="passwordverif"  placeholder="Confirmer votre mot de passe" required>
                 </div>
                 <div class="input-box">
                     <fieldset>
                         <legend>  <span class="details">Logo</span></legend>
-                        <input type="file" placeholder="Uploader votre logo" required>
+                        <input type="file"  name="loge" placeholder="Uploader votre logo" required>
                     </fieldset>
 
                 </div>
@@ -133,7 +133,7 @@ c'est en gros le formulaire pour les entreprises.
                 </div>
                 <div class="input-box description">
                     <span class="details">Description</span>
-                    <textarea id="description" type="textarea" aria-placeholder="Faite une description de votre entreprise"
+                    <textarea id="description" name="description " type="textarea" aria-placeholder="Faite une description de votre entreprise"
                               required> </textarea>
                 </div>
 

@@ -1,4 +1,146 @@
-{% extends "contents/parents.html" %}
-{% block content%}
+{% extends 'contents/parent.html' %}
+{% block content %}
+{% load static %}
+<div class="container-fluid col-12 d-flex position-relative justify-content-between flex-row p-5">
+    <div class="sidebar-module col-3">
+        <!--            ceci un module c'est l'unité de base de notre site tous les elements sont des modules -->
+        <div class="module shadow-3-strong">
+            <header class="header-module ">
+                <div class="image-profil">
+                    <img src="{% static 'image/profil-avatar-homme-icone-rond.png' %}" alt="">
+                </div>
+                <div class="name_profil" style="padding: 10px;font-size: small !important;">
+                    <h4>
+                        <b>Nom:</b>
+                        Fall
+                    </h4>
+                    <h4>
+                        <b>Prenom:</b>
+                        <span style="text-transform: capitalize" id="prenom">papa ahmadou</span>
+                    </h4>
+                </div>
+            </header>
+            <div class="content_module container d-flex flex-column mx-auto  my-auto">
+                <div class="cards w-50">
+                    <div class="card_image  loading"></div>
+                </div>
+                <div class="cards">
+                    <div class="card_image loading"></div>
+                </div>
+                <div class="cards">
+                    <div class="card_image loading"></div>
+                </div>
+                <div class="cards">
+                    <div class="card_image loading"></div>
+                </div>
+            </div>
+            <footer class="footer_module">
+                <img src="{% static 'image/bande_module2.png' %} " alt="">
+            </footer>
+        </div>
+        <br><br>
 
+
+        <!--    c'est petit carre arrondit la c'est ca-->
+        <div class="col-3 h-100 w-100 content-fictif">
+                <div class="cards"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards"><div class="card_image  loading"></div></div>
+            <br>
+            <div style="height: 150px" class="cards"><div class="card_image  loading"></div></div>
+            <div class="cards"><div class="card_image  loading"></div></div>
+
+        <br><br><br><br><br>
+            <div class="cards"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards"><div class="card_image  loading"></div></div>
+            <br>
+            <div style="height: 150px" class="cards"><div class="card_image  loading"></div></div>
+            <div class="cards"><div class="card_image  loading"></div></div>
+        <br><br><br><br><br>
+
+            <div class="cards"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards"><div class="card_image  loading"></div></div>
+            <br>
+            <div style="height: 150px" class="cards"><div class="card_image  loading"></div></div>
+            <div class="cards"><div class="card_image  loading"></div></div>
+        </div>
+<!--        ceci est le contenu principale du c'est le main quoi alors tous les ressources seront chargées la bas-->
+
+    </div>
+    <div class="col-1"></div>
+    <div class="container-fluid col-8  d-flex flex-column">
+        <div id="content-box" class="module bg-light col-11 shadow"></div>
+        <main style="box-shadow: none" class="main border-1  col-11 module p-5">
+                <div class="cards w-50"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+                <div class="cards w-50"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br>
+            <br>
+                <div class="cards w-50"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+                <div class="cards w-50"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+                <div class="cards w-50"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+                <div class="cards w-50"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div class="cards w-100"><div class="card_image  loading"></div></div>
+                <br>
+                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+            <br><br>
+            <div class="cards w-50"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards w-100"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards w-100"><div class="card_image  loading"></div></div>
+            <br>
+            <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+            <br><br>
+            <div class="cards w-50"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards w-100"><div class="card_image  loading"></div></div>
+            <br>
+            <div class="cards w-100"><div class="card_image  loading"></div></div>
+            <br>
+            <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
+            <br><br>
+        </main>
+    </div>
+</div>
 {% endblock%}
