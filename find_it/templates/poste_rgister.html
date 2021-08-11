@@ -1,0 +1,17 @@
+{% extends "contents/parent.html" %}
+{% block content %}
+<div class="container">
+    <div class="raw">
+        <form action="" method="post"> 
+         postuler a une mission
+         {% if error %}
+           {{error}}
+         {% endif %}
+             {% csrf_token %}
+             {{post_form.as_p}}
+             <button  style="text-align: left;color: #074aad; " type="submit" class="btn mx-auto">Se connecter</button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

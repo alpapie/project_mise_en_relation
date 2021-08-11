@@ -1,0 +1,13 @@
+{% extends "contents/parent.html" %}
+{% block content %}
+<form action="" method="post">
+{% if  error%}
+    {{error}}
+{% endif %}
+    {% csrf_token %}
+   <h2> ENregistrer une mission</h2>
+   {{form_mission.as_p}}
+   <button  style="text-align: left;color: #074aad; " type="submit" class="btn mx-auto">Se connecter</button>
+</form>
+
+{% endblock  %}

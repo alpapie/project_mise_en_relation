@@ -1,0 +1,28 @@
+{% extends "contents/parent.html" %}
+{% block content%}
+{% comment %} les formulaire de connection {% endcomment %}
+{% if  form_it %}
+ <form class="form col-12" method="post" action="" >
+        Se connecter en tant que IT_worker 
+         {% if error %}
+      <p style="color: red;">  {{error}}</p>
+          {% endif %}
+ {% csrf_token %}  
+  {{form_it.as_p}}
+   <button  style="text-align: left;color: #074aad; " type="submit" class="btn mx-auto">Se connecter</button>
+</form>
+{% endif %}
+{% if form_EP%}
+ <form class="form col-12" method="post" action="" >
+        Se connecter en tant que Entreprise
+        {% if error %}
+        {{error}}
+         {% endif %}
+   {% csrf_token %}  
+   {{form_EP.as_p}}
+   <button  style="text-align: left;color: #074aad; " type="submit" class="btn mx-auto">Se connecter</button>
+</form>
+ 
+{% endif %}
+
+{% endblock  %}

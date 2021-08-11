@@ -136,3 +136,6 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ] 
+
+LOGIN_URL = 'connect_it'
+LOGOUT_REDIRECT_URL='index'

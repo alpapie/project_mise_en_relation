@@ -11,8 +11,6 @@ class EntrepriseParticulier(models.Model):
     logo = models.ImageField(upload_to='uploadslogo',null=True) 
     description = models.CharField( max_length=254)  # Field name made lowercase.
     adresse = models.CharField( max_length=254, null=True)  # Field name made lowercase.
-    #email = models.EmailField( max_length=256)  # Field name made lowercase.
-    #password = models.CharField( max_length=256)  # Field name made lowercase.
     domaine = models.CharField(max_length=254,null=True)
     def __str__(self): 
       return self.user.username
@@ -31,21 +29,11 @@ class ItWorker(models.Model):
     numero_telephone = models.CharField(max_length=20, null=True)
     def __str__(self): 
       return self.user.username
-    #password = models.CharField(max_length=32) # Field name made lowercase.
-    # @receiver(post_save, sender=User) #add this
-    # def create_user_profile(sender, instance, created, **kwargs):
-    #     if created:
-    #         ItWorker.objects.create(user=instance)
-    # @receiver(post_save, sender=User) #add this
-    # def save_user_profile(sender, instance, **kwargs):
-    #     instance.itworker.save()
-
-
-
+  
 class Mission(models.Model):
     # id_mission = models.IntegerField(db_column='ID_MISSION')  # Field name made lowercase.
     PE = models.ForeignKey(EntrepriseParticulier,on_delete=models.CASCADE)
-    dommaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','cybersecuriter')])
+    domaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','cybersecuriter')])
     intituler = models.CharField( max_length=254, null=True)  # Field name made lowercase.
     date_debut = models.DateTimeField( auto_now_add=True)  # Field name made lowercase.
     date_fin = models.DateField( null=True)  # Field name made lowercase.
@@ -59,7 +47,7 @@ class Postuler(models.Model):
     # id_postula = models.IntegerField()
     itworker = models.ForeignKey(ItWorker,on_delete=models.CASCADE)  # Field name made lowercase.
     mission = models.ForeignKey(Mission,on_delete=models.CASCADE)  # Field name made lowercase.
-    prix = models.TextField(null=True)
-    decription = models.TextField(null=True)  # Field name made lowercase.
-    date_postula = models.DateTimeField()
+    prix = models.DecimalField(max_digits=8, decimal_places=2,null=True)
+    description = models.TextField(null=True)  # Field name made lowercase.
+    date_postula = models.DateTimeField(auto_now_add=True)
 

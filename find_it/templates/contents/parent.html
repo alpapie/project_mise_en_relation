@@ -23,17 +23,26 @@
     <!--     ça c'est la bar des buttons si tu a de nouvelle fonctionalités a ajouter vas-y fais plaisir&ndash;&gt;-->
     <nav class="button-bar row col-12 col-sm-12">
         <div class="col-4"></div>
-        <div class="col-1">
-            <button class="postuler btn btn-dark btn" style="font-size: 12px !important;">poster </button>
-        </div>
+        {% if user.is_authenticated %}
+        <div class="col-1"> <a href="{% url 'post_mission' %}">
+            <button class="postuler btn btn-dark btn" style="font-size: 12px !important;">poster mission</button>
+        </a></div>
         <div class="col-3"></div>
-         <div class="col-2">
+        
+           <div class="col-2"> <a href="{% url 'logout' %}">
+        
+            <button class="register btn btn-dark btn" style="font-size: 12px !important;">se deconnecter</button>
+       </a> </div>
+        {% else %}
+         <div class="col-2"><a href="{% url 'connect_it' %}">
         
             <button class="register btn btn-dark btn" style="font-size: 12px !important;">se connecter</button>
+        </a>
         </div>
          <div class="col-2"> <a href="{% url 'Formregistre' %}">
             <button class="register btn btn-dark btn" style="font-size: 12px !important;padding-lelft:15px">sign up </button>
         </a></div>
+        {% endif %}
         
     </nav>
 </header>
