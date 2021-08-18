@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -136,6 +137,11 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ] 
+MEDIA_URL = '/media/'
 
-LOGIN_URL = 'connect_it'
+# Path where media is stored
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+LOGIN_URL = 'espace'
 LOGOUT_REDIRECT_URL='index'

@@ -33,7 +33,8 @@ class ItWorker(models.Model):
 class Mission(models.Model):
     # id_mission = models.IntegerField(db_column='ID_MISSION')  # Field name made lowercase.
     PE = models.ForeignKey(EntrepriseParticulier,on_delete=models.CASCADE)
-    domaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','cybersecuriter')])
+    logo = models.CharField(max_length=254,null=True)
+    domaine = models.CharField(max_length=254,null=True,choices=[('developement web','developement web'),('art grafique','art grafique'),('developement mobile','developement mobile'),('cybersecuriter','cybersecuriter')])
     intituler = models.CharField( max_length=254, null=True)  # Field name made lowercase.
     date_debut = models.DateTimeField( auto_now_add=True)  # Field name made lowercase.
     date_fin = models.DateField( null=True)  # Field name made lowercase.
