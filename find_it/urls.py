@@ -31,4 +31,8 @@ urlpatterns=[
     #route pour enregistrer des posts
     path('postuler',views.it_post,name='postuler_it') ,
     
+    
+    #route de gestion lors d'un clic sur un domaine
+    path('domaine/<domaine_search>',views.dommaine,name='domaine') ,
+    
 ]

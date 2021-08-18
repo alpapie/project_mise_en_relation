@@ -46,7 +46,7 @@
     <div class="col-1"></div>
     <div class="container-fluid col-8  d-flex flex-column">
 
-        <main style="box-shadow: none" class="main border-1  col-11 module p-5">
+        {% comment %} <!-- <main style="box-shadow: none" class="main border-1  col-11 module p-5">
 <div class="content-fictif border rounded-6 rounded p-5">
             <div class="cards w-50 "><div class="card_image  loading"></div></div>
             <br>
@@ -72,7 +72,67 @@
                 <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
                 <div class="row col-3 mx-auto p-3 d-flex flex-row"><button class="  btn-black btn-small btn-rounded "> Poster </button></div>
             </div>
-        </main>
+        </main> --> {% endcomment %}
+      {% for mission in missions  %}
+      
+         <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{mission. }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ mission.domaine}}</a>
+              <small class="text-muted">{{mission.date_fin|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="">{{ mission.intituler}}</a></h2>
+            <p class="article-content">{{ mission.outils }}</p>
+          </div>
+        </article>
+        {% endfor %}
     </div>
 </div>
 {% endblock%}
+<style>
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+</style>

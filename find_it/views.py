@@ -6,15 +6,17 @@ from django.contrib.auth.models import User
 from django.http import request
 from django.contrib.auth.decorators import login_required
 from .forms import ITform,Uform,PEform,pe_uform,Conect,missionForm,PostForm
-
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 
 #se view traite l'index on recuper et on n'affiche quelle donne
 def index(request):
+    if request.user.is_authenticated:
+        return redirect('espace')
     dommaine=['Developpement web','Developpement Mobile','Infographie','Multumedia ','reseau ','cybersecuriter'
                      ]
-    missions=Mission.objects.all().latest('date_debut')
+    missions=Mission.objects.all()
     return render(request,'index.html',{'dommaine': dommaine,'missions':missions})
 
 #cette view revoi la page  registre.html
@@ -52,6 +54,7 @@ def form_treatment_utilisateur(request):
                     itw = it_form.save(commit=False)
                     #on passe le user pour enregistrer la clee etranger dan itworker
                     itw.user = user
+                    
                     itw.save()
                     
                     #on authenthifie l'itilisateur
@@ -62,7 +65,7 @@ def form_treatment_utilisateur(request):
                     #     if userit.is_active:
                     #         #et on le connecte
                     #         login(request,userit)
-                    return redirect('espace')
+                    return redirect('connect_it')
                 else:
                     #si l'email existe on renvoie se message
                     errormessage="l'email existe deja"
@@ -102,14 +105,14 @@ def form_treatment_EP(request):
                     PE_registe.save()
                     
                     #on authenthifie l'itilisateur
-                    # userit = authenticate(email=user.email, password=user.password)
+                    userit = authenticate(email=user.email, password=user.password)
                     
                     # #on verifie si elle n'est pas vide
                     # if userit is not None:
                     #     if userit.is_active:
                     #         #et on le connecte
                     #         login(request,userit)
-                    return render('espace')
+                    return redirect('connect_it')
                 else:
                     #si l'email existe on renvoie se message
                     errormessagePE="l'email existe deja"
@@ -140,7 +143,7 @@ def form_treatment_EP(request):
 
 #     return  render(request,'connection.html',{'form_EP':form_EP,'error':error})
 
-#on authentifie l'IT
+#on authentifie et
 def connect_it(request):
     error=''
     form_it=Conect()
@@ -183,6 +186,7 @@ def mission_teatement(request):
             #on verifie si c une entreprise
             if pe:
                 mission.PE=pe
+                mission.logo=pe
                 mission.save()
                 return redirect('espace')
             else:
@@ -197,14 +201,23 @@ def mission_teatement(request):
 @login_required
 def espace_info(request):
     id_user=request.user.id
-    info=""
-    pe_info=EntrepriseParticulier.objects.filter(user_id=id_user)
-    it_info=ItWorker.objects.filter(user_id=id_user)
+    try:
+       pe_info=EntrepriseParticulier.objects.get(user_id=id_user)
+    except EntrepriseParticulier.DoesNotExist:
+       pe_info = None
+    
+    try:
+        it_info=ItWorker.objects.get(user_id=id_user)
+    except ItWorker.DoesNotExist:
+      it_info= None
+  
     if pe_info:
         info=pe_info
+        return render(request,'Entreprise/espace.html',{'info':info})
     else:
+        it_info=ItWorker.objects.get(user_id=id_user)
         info=it_info
-    return render(request,'espace.html',{'info':info})
+        return render(request,'it_worker/espace.html',{'info':info})
     
 @login_required
 def it_post(request):
@@ -218,3 +231,16 @@ def it_post(request):
         else:
             error=post.errors
     return render(request,'poste_rgister.html',{'post_form':post_form,'error':error})
+
+
+#on fait un requet pour recuperer les poste du domaine cliquer
+@login_required
+def dommaine(request,domaine_search):
+    if domaine_search:
+        mission=Mission.objects.filter(domaine=domaine_search)
+        
+    pass
+def Mes_post(request):
+    pass
+def mes_mission():
+    pass

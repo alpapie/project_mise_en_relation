@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05bbf543-95b7-41d3-8b35-a44db4e3c9b4" name="Default Changelist" comment="comit 1">
+    <list default="true" id="05bbf543-95b7-41d3-8b35-a44db4e3c9b4" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;find_it/forms.py&#10;#&#9;find_it/models.py&#10;#&#9;find_it/urls.py&#10;#&#9;find_it/views.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/templates/espace.html" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/templates/espace.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/templates/registre.html" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/templates/registre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_it/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_it/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +40,7 @@
       <updated>1628186356291</updated>
       <workItem from="1628186358259" duration="1964000" />
       <workItem from="1628509564927" duration="1019000" />
+      <workItem from="1628725421577" duration="1135000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1628509643916</created>
@@ -62,7 +56,28 @@
       <option name="project" value="LOCAL" />
       <updated>1628509922894</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="comit du 11 aut 2021 et j'ai beaucoup avance">
+      <created>1628725513438</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1628725513438</updated>
+    </task>
+    <task id="LOCAL-00004" summary="comit du 11 aut 2021 et j'ai beaucoup avance">
+      <created>1628725592123</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1628725592123</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;find_it/forms.py&#10;#&#9;find_it/models.py&#10;#&#9;find_it/urls.py&#10;#&#9;find_it/views.py">
+      <created>1628725939849</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1628725939849</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,6 +98,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="comit 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="comit 1" />
+    <MESSAGE value="comit du 11 aut 2021 et j'ai beaucoup avance" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;find_it/forms.py&#10;#&#9;find_it/models.py&#10;#&#9;find_it/urls.py&#10;#&#9;find_it/views.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;find_it/forms.py&#10;#&#9;find_it/models.py&#10;#&#9;find_it/urls.py&#10;#&#9;find_it/views.py" />
   </component>
 </project>
