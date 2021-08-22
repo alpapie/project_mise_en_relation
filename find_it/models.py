@@ -41,7 +41,7 @@ class Mission(models.Model):
     description = models.CharField( max_length=254, null=True)  # Field name made lowercase.
     fourcette_prix = models.DecimalField( max_digits=8, decimal_places=0, null=True)  # Field name made lowercase.
     outils = models.TextField()  # Field name made lowercase.
-
+    isPosted= models.BooleanField(default=False)  
 
 
 class Postuler(models.Model):

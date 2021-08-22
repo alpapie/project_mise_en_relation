@@ -7,7 +7,7 @@
         <div class="module shadow-3-strong">
             <header class="header-module ">
                 <div class="image-profil">
-                    <img src="{{ info.logo.url }}" style="max-height:30px" alt="">
+                    <img src="{{ info.logo.url }}" style="max-height:74px" alt="">
                 </div>
                 <div class="name_profil" style="padding: 10px;font-size: small !important;">
                     <h4>
@@ -73,73 +73,21 @@
     <div class="container-fluid col-8  d-flex flex-column">
         <div id="content-box" class="module bg-light col-11 shadow"></div>
         <main style="box-shadow: none" class="main border-1  col-11 module p-5">
-                <div class="cards w-50"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
-                <div class="cards w-50"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <br>
-                <div class="cards w-50"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
-                <div class="cards w-50"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
-                <div class="cards w-50"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
-                <div class="cards w-50"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
-            <br><br>
-            <div class="cards w-50"><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
-            <br><br>
-            <div class="cards w-50"><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <br><br>
+              
+            {% for mission in missions  %}
+      
+            <article class="media content-section">
+             <img class="rounded-circle article-img" src="media/{{ mission.logo }}" style="max-height:74px">
+             <div class="media-body">
+               <div class="article-metadata">
+                 <a class="mr-2" href="#">{{ mission.domaine}}</a>
+                 <small class="text-muted">{{mission.date_fin|date:"F d, Y" }}</small>
+               </div>
+               <h2><a class="article-title" href="">{{ mission.intituler}}</a></h2>
+               <p class="article-content">{{ mission.outils }}</p>
+             </div>
+           </article>
+           {% endfor %}
         </main>
     </div>
 </div>

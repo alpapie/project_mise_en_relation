@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     font-size: 17px !important;
+
 }
 
 body {
-    background-color: #f0f0f0 !important;
+    background-color: #F4F6F8 !important;
 
 }
 
@@ -34,12 +35,6 @@ body {
 button.postuler {
     border-radius: 30px !important;
     color: #F8C646!important;
-}
-.register{
-    border-radius: 20px !important;
-    background-color: #F8C646!important;
-    
-
 }
 
 div.sidebar-module > div.module {
@@ -72,7 +67,6 @@ div.sidebar > div.module:hover{
 }
 main.module{
 min-height: 1000px;
-    background-color: #fff;
     transition: ease-in-out 2ms;
 
 }
@@ -153,6 +147,39 @@ div.content_module {
     animation: loading 0.8s infinite;
 }
 
+div#logo-post img#logo{
+width: 70px;
+    height: 70px;
+}
+h1#intitule_mission{
+    color:#CD5300 ;
+    font-weight: bolder;
+}
+p.description{
+    font-family: "Circular Std", sans-serif !important;
+    font-size: 15px !important;
+}
+#infos_mission{
+    background-color: rgba(253, 157, 13, 0.22);
+
+}
+div#post{
+    cursor: pointer;
+    transition: all ease 200ms;
+}
+div#post:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+}
+.date,.prix{
+    font-size: 11px !important;
+}
+span#caution{
+    font-size: 13px !important;
+    color: #0a47a9;
+}
+#date_fin{
+
+}
 @keyframes loading {
     100% {
         transform: translateX(100%);
@@ -342,7 +369,7 @@ div.content_module {
 }
 .carousel-control.left, .carousel-control.right {
     background: none;
-    color: @red;
+    color: red;
     border: none;
 }
 .carousel-control.left {margin-left: -45px; color: black;}

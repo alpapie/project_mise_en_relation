@@ -29,10 +29,16 @@ urlpatterns=[
     path('espace_it',views.espace_info,name='espace') ,
     
     #route pour enregistrer des posts
-    path('postuler',views.it_post,name='postuler_it') ,
+    path('postuler/<int:mission_id>',views.it_post,name='postuler_it') ,
     
     
     #route de gestion lors d'un clic sur un domaine
     path('domaine/<domaine_search>',views.dommaine,name='domaine') ,
+    
+    #route pour voire mes poste
+    path('viewpost/<int:id_it>',views.mespost,name='mespostula') ,
+    
+    
+  
     
 ]

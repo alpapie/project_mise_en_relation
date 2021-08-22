@@ -9,14 +9,15 @@ from .forms import ITform,Uform,PEform,pe_uform,Conect,missionForm,PostForm
 from django.shortcuts import get_object_or_404
 # Create your views here.
 
-
+isPosted=False
 #se view traite l'index on recuper et on n'affiche quelle donne
 def index(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and request.user.is_superuser==0:
         return redirect('espace')
     dommaine=['Developpement web','Developpement Mobile','Infographie','Multumedia ','reseau ','cybersecuriter'
                      ]
     missions=Mission.objects.all()
+    
     return render(request,'index.html',{'dommaine': dommaine,'missions':missions})
 
 #cette view revoi la page  registre.html
@@ -146,7 +147,6 @@ def form_treatment_EP(request):
 #on authentifie et
 def connect_it(request):
     error=''
-    form_it=Conect()
     if request.method == 'POST':
         #on extrait les donnee
         username = request.POST['username']
@@ -161,7 +161,7 @@ def connect_it(request):
                 return redirect('espace')
         error='mot de passe ou identifiant incorrect'
     #si l'utilisateur n'est pas connecter on le renvoie au niveau du formulaire
-    return render(request,'connection.html',{'form_it':form_it,'error':error})
+    return render(request,'connection.html',{'error':error})
 
 #on deconnect le user
 @login_required
@@ -174,7 +174,7 @@ def deconnection(request):
 def mission_teatement(request):
     error=''
     #on genere le formulaire
-    form_mission=missionForm() 
+   
     if request.method=='POST':
         mission_req=missionForm(request.POST)
         #on verifie si les donne son valide
@@ -186,7 +186,7 @@ def mission_teatement(request):
             #on verifie si c une entreprise
             if pe:
                 mission.PE=pe
-                mission.logo=pe
+                mission.logo=pe.logo
                 mission.save()
                 return redirect('espace')
             else:
@@ -194,43 +194,57 @@ def mission_teatement(request):
                 return  render(request,'mission_register.html',{'form_mission':form_mission,'error':error})
         else:
             error=mission_req.errors
-    return  render(request,'mission_register.html',{'form_mission':form_mission,'error':error})
+    return  render(request,'mission_register.html',{'error':error})
 
 
-#vue pour le venvoi des donne vers l'espace du user
+#vue pour le venvoi des donne vers l'espace du user ou de l'entreprise
 @login_required
 def espace_info(request):
-    id_user=request.user.id
-    try:
-       pe_info=EntrepriseParticulier.objects.get(user_id=id_user)
-    except EntrepriseParticulier.DoesNotExist:
-       pe_info = None
+    if request.user.is_authenticated and request.user.is_superuser==0:
+        id_user=request.user.id
+        try:
+            pe_info=EntrepriseParticulier.objects.get(user_id=id_user)
+        except EntrepriseParticulier.DoesNotExist:
+            pe_info = None
+        try:
+            it_info=ItWorker.objects.get(user_id=id_user)
+        except ItWorker.DoesNotExist:
+            it_info= None
     
-    try:
-        it_info=ItWorker.objects.get(user_id=id_user)
-    except ItWorker.DoesNotExist:
-      it_info= None
-  
-    if pe_info:
-        info=pe_info
-        return render(request,'Entreprise/espace.html',{'info':info})
-    else:
-        it_info=ItWorker.objects.get(user_id=id_user)
-        info=it_info
-        return render(request,'it_worker/espace.html',{'info':info})
+        if  pe_info:
+            info=pe_info
+            peid=pe_info.id
+            
+            missions=Mission.objects.filter(PE_id=peid)
     
+            return render(request,'Entreprise/espace.html',{'info':info,'missions':missions,})
+        else :
+            domaine=it_info.domaine
+            missions=Mission.objects.filter(domaine=domaine)
+            info=it_info
+            
+            posts= Postuler.objects.filter(itworker_id=it_info.id)
+            return render(request,'it_worker/espace.html',{'info':info,'missions':missions,'posts':posts})
+    return render(request ,'registre.html')
+
 @login_required
-def it_post(request):
-    post_form=PostForm()
-    error="veiller renseigner tous les champs"
+def it_post(request,mission_id):
+    error=''
     if request.method=='POST':
-        post=PostForm(request.POST)
-        if post.is_valid():
-            post.save()
+        postula=PostForm(request.POST)
+        
+        if postula.is_valid():
+            postula=postula.save(commit=False)
+            it_worker=ItWorker.objects.get(user_id=request.user.id) 
+            postula.itworker=it_worker
+            mission=Mission.objects.get(id=mission_id)
+            postula.mission=mission
+            postula.save()
+            mission.isPosted=1
             return redirect('espace')
-        else:
-            error=post.errors
-    return render(request,'poste_rgister.html',{'post_form':post_form,'error':error})
+        
+        error=postula.errors
+    return render(request,'poste_rgister.html',{'error':error})
 
 
 #on fait un requet pour recuperer les poste du domaine cliquer
@@ -240,7 +254,13 @@ def dommaine(request,domaine_search):
         mission=Mission.objects.filter(domaine=domaine_search)
         
     pass
-def Mes_post(request):
-    pass
+#envoyer du postula avec comme param id de la mission
+
+@login_required   
+def mespost(request,id_it):
+   
+    missions_post=Postuler.objects.select_related('mission').filter(itworker=id_it)
+    return render(request ,'it_worker/mes-post.html',{'missions_post':missions_post})
+
 def mes_mission():
     pass

@@ -42,5 +42,5 @@ class missionForm(forms.ModelForm):
 class PostForm(forms.ModelForm): 
     class Meta:
         model=Postuler
-        fields=['itworker','mission','description','prix',]   
+        fields=['description','prix',]   
            

@@ -1,0 +1,15 @@
+{% extends 'contents/parent.html' %}
+{% block content %}
+{% load static %}
+    <article class="media content-section">
+             <img class="rounded-circle article-img" src="media/{{ mission.logo }}" style="max-height:74px">
+             <div class="media-body">
+               <div class="article-metadata">
+                 <a class="mr-2" href="#">{{ mission.domaine}}</a>
+                 <small class="text-muted">{{mission.date_fin|date:"F d, Y" }}</small>
+               </div>
+               <h2><a class="article-title" href="">{{ mission.intituler}}</a></h2>
+               <p class="article-content">{{ mission.outils }}</p>
+             </div>
+    </article>
+{% endblock%}
