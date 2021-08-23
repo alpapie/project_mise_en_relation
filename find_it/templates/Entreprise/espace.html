@@ -74,19 +74,51 @@
         <div id="content-box" class="module bg-light col-11 shadow"></div>
         <main style="box-shadow: none" class="main border-1  col-11 module p-5">
               
+            
             {% for mission in missions  %}
       
-            <article class="media content-section">
-             <img class="rounded-circle article-img" src="media/{{ mission.logo }}" style="max-height:74px">
-             <div class="media-body">
-               <div class="article-metadata">
-                 <a class="mr-2" href="#">{{ mission.domaine}}</a>
-                 <small class="text-muted">{{mission.date_fin|date:"F d, Y" }}</small>
-               </div>
-               <h2><a class="article-title" href="">{{ mission.intituler}}</a></h2>
-               <p class="article-content">{{ mission.outils }}</p>
-             </div>
-           </article>
+
+            <div class="col-12 m-2 bg-white p-3 mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1"
+                 id="post">
+                <div class=" rounded-6 col-2 " id="logo-post">
+                    <img class=" rounded border border-black p-2 mx-auto my-2" id="logo"
+                         src="media/{{ mission.logo }}"/>
+                </div>
+                <div class=" col-10  d-flex flex-column m-1" id="content-post">
+                    <div class="col-12 w-100">
+                        <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">
+                            {{ mission.intituler}}
+                        </h1>
+                        <h1 class=" border-black  border-bottom h1 py-2"></div>
+
+                    <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
+                        <span class="col-3   prix "> <span
+                                id="caution">Caution :</span> {{mission.fourcette_prix}} fcfa </span>
+                        <span class="col-3 date "> Du <span class="bg date" id="date_debut">{{mission.date_debut|date:"F d, Y" }}</span> au <span
+                                class="date text-danger" id="date_fin">{{mission.date_fin|date:"F d, Y" }}</span> </span>
+                    </div>
+                    <div></div>
+                    <div class=" text-justify col-12  " id="description_mission">
+                        <p class="description p-2" id="description ">
+                           {{mission.description | truncatechars:300}}  </p>
+
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                        <div class="col-6 mx-auto">
+                            <a href=" {% url 'mespost' mission.id %}">
+                            <button class="btn btn-rounded btn-sm btn-success" style="font-size: 11px !important;">voir les post
+                            </button></a>
+                        </div>
+
+                        <div class="col-6 mx-auto">
+                            <button class="btn btn-rounded btn-sm btn-primary" style="font-size: 11px !important;">modier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
            {% endfor %}
         </main>
     </div>

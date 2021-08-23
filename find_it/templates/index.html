@@ -109,7 +109,7 @@
             <div></div>
             <div class=" text-justify col-12  " id="description_mission">
                 <p class="description p-2" id="description ">
-                    {{ mission.description }}
+                    {{ mission.description |truncatechars:300 }}
                 </p>
 
             </div>

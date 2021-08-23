@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "vscode-edge-devtools.debug",
+            "request": "launch",
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "url": "C:\\Users\\ahmad\\Desktop\\find-it",
+            "webRoot": "${workspaceFolder}"
+        },
+    
+        {
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "" // Provide your project's url to finish configuring
+        }
+    ]
+}

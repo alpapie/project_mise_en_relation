@@ -38,7 +38,11 @@ urlpatterns=[
     #route pour voire mes poste
     path('viewpost/<int:id_it>',views.mespost,name='mespostula') ,
     
+    #route vers les detail du post
+    path('detail/<int:detail_id>',views.detail_posts,name='detail_mission') ,
     
-  
+     #route vers les detail du post
+    path('mespost/<int:mission_id>',views.detail_mission,name='mespost') ,
+    
     
 ]

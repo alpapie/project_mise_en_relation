@@ -173,8 +173,6 @@ def deconnection(request):
 @login_required
 def mission_teatement(request):
     error=''
-    #on genere le formulaire
-   
     if request.method=='POST':
         mission_req=missionForm(request.POST)
         #on verifie si les donne son valide
@@ -200,6 +198,7 @@ def mission_teatement(request):
 #vue pour le venvoi des donne vers l'espace du user ou de l'entreprise
 @login_required
 def espace_info(request):
+    post=None
     if request.user.is_authenticated and request.user.is_superuser==0:
         id_user=request.user.id
         try:
@@ -216,14 +215,17 @@ def espace_info(request):
             peid=pe_info.id
             
             missions=Mission.objects.filter(PE_id=peid)
-    
+            
             return render(request,'Entreprise/espace.html',{'info':info,'missions':missions,})
         else :
             domaine=it_info.domaine
             missions=Mission.objects.filter(domaine=domaine)
             info=it_info
-            
             posts= Postuler.objects.filter(itworker_id=it_info.id)
+            for mission in missions:
+                for post in posts:
+                    if post.mission_id == mission.id :
+                        mission.isPosted=1
             return render(request,'it_worker/espace.html',{'info':info,'missions':missions,'posts':posts})
     return render(request ,'registre.html')
 
@@ -261,6 +263,21 @@ def mespost(request,id_it):
    
     missions_post=Postuler.objects.select_related('mission').filter(itworker=id_it)
     return render(request ,'it_worker/mes-post.html',{'missions_post':missions_post})
+@login_required 
+def detail_posts(request,detail_id):
+    a_poster=False
+    mission=Mission.objects.get(id=detail_id)
+    try:
+        post=Postuler.objects.get(mission_id=mission.id)
+    except Postuler.DoesNotExist:
+        post = None
+    if post!=None:
+        a_poster=True
+    return render(request,'it_worker/detail-post.html',{'mission':mission,'a_poster':a_poster})
 
-def mes_mission():
-    pass
+@login_required 
+def detail_mission(request,mission_id):
+    mission=Mission.objects.get(id=mission_id)
+    posts=Postuler.objects.select_related('itworker').filter(mission_id=mission_id)
+    return render(request,'Entreprise/detail-mission.html',{'mission':mission,'posts':posts})
+   

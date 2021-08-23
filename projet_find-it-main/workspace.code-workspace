@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\it worker job\\js"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "find-it"
+	}
+}
