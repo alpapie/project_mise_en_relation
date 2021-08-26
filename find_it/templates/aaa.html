@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+<div class="row d-flex justify-content-center mt-100">
+  <div class="col-md-6"> <select id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
+          <option value="1">CMS</option>
+          <option value="2">Jquery</option>
+          <option value="3">php</option>
+          <option value="4">Django</option>
+          <option value="5">laravel</option>
+          <option value="6">Java</option>
+          <option value="7">Javascript</option>
+          <option value="8">Angular</option>
+          <option value="9">Python</option>
+          <option value="10">c</option>
+          <option value="11">SQL</option>
+          <option value="12">NOSQL</option>
+          <option value="13">NodeJS</option>
+          <option value="14">logiciel adobe</option>
+          <option value="15">linux</option>
+          
+      </select> </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+  removeItemButton: true,
+  maxItemCount:5,
+  searchResultLimit:5,
+  renderChoiceLimit:5
+  });
+
+  });
+  </script>
+  choices=[('1','CMS'),('2','Jquery'),('3','php'),('4','Django'),('5','laravel'),('6','java'),('7','Javascript',('8','Angular',('9','Python'),('10','c'),('11',('SQL'),('12',('NOSQL')])
+      
+from django.db import models
+from django.contrib.auth.models import User
+from django.dispatch import receiver #add this
+from django.db.models.signals import post_save #add this
+
+class EntrepriseParticulier(models.Model):
+    # id_pe = models.IntegerField(db_column='ID_PE' ,)  # Field name made lowercase.
+    user = models.OneToOneField(User, on_delete=models.CASCADE)#nom = models.CharField( max_length=254)  # Field name made lowercase.
+    nom= models.CharField( max_length=254)  # Field name made lowercase.
+    logo = models.ImageField(upload_to='uploadslogo',null=True) 
+    description = models.CharField( max_length=254)  # Field name made lowercase.
+    adresse = models.CharField( max_length=254, null=True)  # Field name made lowercase.
+    domaine = models.CharField(max_length=254,null=True,choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','Experte en sécurité informatique'),('5','developpeur full-stack'),('6','Développeur back-end'),('7','Ingénieur DevOps'),('8','Architecte réseau'),('9','Architecte informatique'),('10','Testeur'),('11','Développeur de jeux vidéo'),('12','Infographiste')])
+    def __str__(self): 
+      return self.user.username
+
+class ItWorker(models.Model):
+    # id_itworker = models.IntegerField(db_column='ID_ITWORKER')  # Field name made lowercase.
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    domaine = models.CharField(max_length=254,null=True,)
+    competence = models.CharField(max_length=254)  # Field name made lowercase.
+    sexe = models.CharField( max_length=254, null=True) 
+    image = models.ImageField(upload_to='uploads',null=True) 
+    date_naissance= models.DateField(null=True)  # Field name made lowercase.
+    description = models.CharField( max_length=254, null=True)  # Field name made lowercase.
+    adresse = models.CharField( max_length=254, null=True)  # Field name made lowercase.
+    #email = models.EmailField(max_length=255, null=True)
+    numero_telephone = models.CharField(max_length=20, null=True)
+    def __str__(self): 
+      return self.user.username
+  
+class Mission(models.Model):
+    # id_mission = models.IntegerField(db_column='ID_MISSION')  # Field name made lowercase.
+    PE = models.ForeignKey(EntrepriseParticulier,on_delete=models.CASCADE)
+    logo = models.CharField(max_length=254,null=True)
+    domaine = models.CharField(max_length=254,null=True,  choices=[('1','developement web'),('2','art grafique'),('3','developement mobile'),('4','Experte en sécurité informatique'),('5','developpeur full-stack'),('6','Développeur back-end'),('7','Ingénieur DevOps'),('8','Architecte réseau'),('9','Architecte informatique'),('10','Testeur'),('11','Développeur de jeux vidéo'),('12','Infographiste')])
+    intituler = models.CharField( max_length=254, null=True)  # Field name made lowercase.
+    date_debut = models.DateTimeField( auto_now_add=True)  # Field name made lowercase.
+    date_fin = models.DateField( null=True)  # Field name made lowercase.
+    description = models.TextField()  # Field name made lowercase.
+    fourcette_prix = models.DecimalField( max_digits=8, decimal_places=0, null=True)  # Field name made lowercase.
+    outils = models.CharField( max_length=254, null=True, choices=[('1','CMS'),('2','Jquery'),('3','php'),('4','Django'),('5','laravel'),('6','java'),('7','Javascript'),('8','Angular'),('9','Python'),('10','c'),('11','SQL'),('12','NOSQL')] ) # Field name made lowercase.
+    isPosted= models.BooleanField(default=False)  
+
+
+class Postuler(models.Model):
+    # id_postula = models.IntegerField()
+    itworker = models.ForeignKey(ItWorker,on_delete=models.CASCADE)  # Field name made lowercase.
+    mission = models.ForeignKey(Mission,on_delete=models.CASCADE)  # Field name made lowercase.
+    prix = models.DecimalField(max_digits=8, decimal_places=2,null=True)
+    description = models.TextField(null=True)  # Field name made lowercase.
+    date_postula = models.DateTimeField(auto_now_add=True)
+

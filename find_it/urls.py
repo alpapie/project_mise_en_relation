@@ -42,7 +42,12 @@ urlpatterns=[
     path('detail/<int:detail_id>',views.detail_posts,name='detail_mission') ,
     
      #route vers les detail du post
-    path('mespost/<int:mission_id>',views.detail_mission,name='mespost') ,
+    path('mespost_ep/<int:mission_id>',views.detail_mission,name='mespost_ep') ,
+     
+     
+     # envoyer mail
+      path('mail/<int:id_it>/<int:id_mission>',views.send_mail_to,name='mail_a') ,
+     
     
     
 ]

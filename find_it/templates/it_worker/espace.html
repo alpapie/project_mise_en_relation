@@ -1,101 +1,69 @@
-{% extends 'contents/parent.html' %}
-{% block content %}
-{% load static %}
-<div class="container-fluid col-12 d-flex position-relative justify-content-between flex-row p-5">
-    <div class="sidebar-module col-3">
-        <!--            ceci un module c'est l'unité de base de notre site tous les elements sont des modules -->
-        <div class="module shadow-3-strong">
-            <header class="header-module ">
-                <div class="image-profil">
-                    <img src="{{ info.image.url }}" style="max-height:74px" alt="">
-                </div>
-                <div class="name_profil" style="padding: 10px;font-size: small !important;">
-                    <h4>
-                        <b>Nom:</b>
-                        {{user.get_full_name}}
-                    </h4>
-                    <!-- <h4>
-                        <b>Prenom:{{user.get_full_name}}</b>
-                        <span style="text-transform: capitalize" id="prenom">{{user.first_name}}</span>
-                    </h4> -->
-                </div>
-            </header>
-            <div class="content_module container d-flex flex-column mx-auto  my-auto">
-               
-                   <div> <b>Domaine:</b>{{ info.domaine}}</div>
-               
-                
-                    <div> <b>Technologie matriser:</b>{{ info.competence}}</div>
-                 
-               <a href="{% url 'mespostula' info.id %}"> <p>Voire mes postula</p></a>
-            </div>
-            <footer class="footer_module">
-                <img src="{% static 'image/bande_module2.png' %} " alt="">
-            </footer>
-        </div>
+{% extends 'contents/it-content.html' %}
+{% block content-it %}
+{% load static %}    <!--           LES POST SONT GERER LA PAR LA DIV#post-->
+            
+            {% for mission in missions %}
+              
         
-<!--        ceci est le contenu principale du c'est le main quoi alors tous les ressources seront chargées la bas-->
+            <div class="col-12 m-2 bg-white p-3 mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1"
+                 id="post">
+                 <a class="alink" href="{% url 'detail_mission' mission.id %}">
+                     {% if mission.logo %}
+                        <div class=" rounded-6 col-2 " id="logo-post">
 
-    </div>
-    <div class="col-1"></div>
-    <div class="container-fluid col-8  d-flex flex-column">
-        <!-- <div id="content-box" class="module bg-light col-11 shadow"></div> -->
-        <main style="box-shadow: none" class="main border-1  col-11 module p-5">
-          
-        {% for mission in missions  %}
-     
-           <div class="col-12 m-2 bg-white  mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1" id="post">
-            <a href="{% url 'detail_mission' mission.id %}">
-                {{ mission.id }}
-            <div class=" rounded-6 col-2 " id="logo-post">
-                <img class="rounded-circle article-img" id="logo" src="media/{{ mission.logo }}" style="max-height:74px">
-            </div>
-            <div class=" col-10  d-flex flex-column m-1" id="content-post">
-                <div class="col-12 w-100">
-                    <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">création d'une
-                        {{ mission.intituler}}</h1>
-                </div>
-
-                <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
-                    <span class="col-3   prix "> <span
-                            id="caution">Caution :</span> {{ mission.fourcette_prix }} </span>
-                    <span class="col-3 date "> Du <span class="bg date" id="date_debut"> 10 Aout</span> au <span
-                            class="date text-danger" id="date_fin">21 Septembre</span> </span>
-                </div>
-                <div></div>
-                <div class=" text-justify col-12  " id="description_mission">
-                    <p class="description p-2" id="description ">
-                        {{ mission.description |truncatechars:300 }}
-                    </p>
-
-                </div>
-             
-            </a>
-            
-                      {% if mission.isPosted == 1  %}
-                     
-                        <div class="col-6 mx-auto">
-                            <button style="font-size: 12px !important;" class="btn btn-rounded btn-sm btn-success">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                    <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-                                </svg>
-                            </button> 
+                            <img class="rounded-circle article-img" src="{{ mission.logo }}" style="max-height:74px" id="logo"
+                            />
                         </div>
-                   
-                        {% else %}
-                        
-                            <div class="col-6 mx-auto">
-                                <a style="color: aliceblue; " href="{% url 'postuler_it' mission.id %}">   <button style="font-size: 12px !important;" class="btn btn-rounded btn-sm btn-dark">Postuler </button> </a>
-                            </div>  
+                     {% else %}
+                        <div class=" rounded-6 col-2 " id="logo-post">
 
-                      {% endif %}
-            
+                            <img class=" rounded border border-black p-2 mx-auto my-2" id="logo"
+                            src="{% static 'image/icons8-computer-60%20(1).png' %}"/>
+                        </div>
+                     {% endif %}
+               
+                <div class=" col-10  d-flex flex-column m-1" id="content-post">
+                    <div class="col-12 w-100">
+                        <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">
+                            {{ mission.intituler }}</h1>
+                    </div>
+
+                    <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
+                        <span class="col-3   prix "> <span
+                                id="caution">Caution :</span> {{mission.fourcette_prix }}</span>
+                        <span class="col-3 date "> Du <span class="bg date" id="date_debut">{{ mission.date_debut}}</span> au <span
+                                class="date text-danger" id="date_fin">{{ mission.date_fin}}</span> </span>
+                    </div>
+                    <div></div>
+                    <div class=" text-justify col-12  " id="description_mission">
+                        <p class="description p-2" id="description ">
+                            {{mission.description | truncatechars:300}}
+                          </p>
+
+                    </div>
+                  </a>
+                    {% if mission.isPosted == 1  %}
+                    <div class="col-6 mx-auto">
+                        <button style="font-size: 12px !important;" class="btn btn-rounded btn-sm btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
+                            </svg>
+                        </button> 
+                    </div>
+               
+                    {% else %}
+                    
+                        <div class="col-6 mx-auto">
+                            <a style="color: aliceblue; " href="{% url 'postuler_it' mission.id %}">   <button style="font-size: 12px !important;" class="btn btn-rounded btn-sm btn-dark">Postuler </button> </a>
+                        </div>  
+
+                  {% endif %}
+        
+                </div>
             </div>
-            
-          </div>
-       
-        {% endfor %}
-        </main>
-    </div>
-</div>
+                {% endfor %}
+        
+<!-- Site footer -->
+
+
 {% endblock%}

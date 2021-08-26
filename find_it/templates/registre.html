@@ -8,6 +8,9 @@
     <title> Responsive Registration Form | CodingLab </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
 <body>
 <div class="container formulaire_itworker">
     <div class="title">S'enrigistrer en tant que IT-WORKER</div>
@@ -52,12 +55,41 @@
 
                      <div class="input-box">
                     <span class="details">Domaine</span>
-                    <input type="text" name="domaine" placeholder="Entrer votre numero" required>
-                </div>
+                    <select name="domaine" id="choices-multiple-remove-button" placeholder="5 choix authorise" multiple>
+                        <option value="1">developement web</option>
+                        <option value="2">art grafique</option>
+                        <option value="3">developement mobile</option>
+                        <option value="4">Experte en sécurité informatique</option>
+                        <option value="5">'developpeur full-stack</option>
+                        <option value="6">Développeur back-end</option>
+                        <option value="7">Ingénieur DevOps</option>
+                        <option value="8">Architecte réseau</option>
+                        <option value="9">Architecte informatique</option>
+                        <option value="10">Testeur</option>
+                        <option value="11">Développeur de jeux vidéo</option>
+                       
+                        <option value="12">Infographiste</option>
+                    </select>                 </div>
                 <div class="input-box">
                     <span class="details">competence</span>
-                    <input type="text" name="competence" placeholder="Entrer votre domaine" required>
-                </div>
+                    <select name="competence" id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
+                        <option value="1">CMS</option>
+                        <option value="2">Jquery</option>
+                        <option value="3">php</option>
+                        <option value="4">Django</option>
+                        <option value="5">laravel</option>
+                        <option value="6">Java</option>
+                        <option value="7">Javascript</option>
+                        <option value="8">Angular</option>
+                        <option value="9">Python</option>
+                        <option value="10">c</option>
+                        <option value="11">SQL</option>
+                        <option value="12">NOSQL</option>
+                        <option value="13">NodeJS</option>
+                        <option value="14">logiciel adobe</option>
+                        <option value="15">linux</option>
+                        
+                    </select>                 </div>
                 <div class="input-box">
                     <span class="details">image</span>
                     <input type="file" name="image" placeholder="Entrer votre domaine" required>
@@ -145,8 +177,21 @@ c'est en gros le formulaire pour les entreprises.
                 </div>
                 <div class="input-box">
                     <span class="details">Domaine</span>
-                    <input type="text" name="dommaine" placeholder="Entrer votre domaine" required>
-                </div>
+                    <select name="domaine" id="choices-multiple-remove-button" placeholder="5 choix authorise" multiple>
+                        <option value="1">developement web</option>
+                        <option value="2">art grafique</option>
+                        <option value="3">developement mobile</option>
+                        <option value="4">Experte en sécurité informatique</option>
+                        <option value="5">'developpeur full-stack</option>
+                        <option value="6">Développeur back-end</option>
+                        <option value="7">Ingénieur DevOps</option>
+                        <option value="8">Architecte réseau</option>
+                        <option value="9">Architecte informatique</option>
+                        <option value="10">Testeur</option>
+                        <option value="11">Développeur de jeux vidéo</option>
+                        
+                        <option value="12">Infographiste</option>
+                    </select>                 </div>
 
                 <div class="input-box">
                     <span class="details">Email</span>
@@ -198,7 +243,20 @@ c'est en gros le formulaire pour les entreprises.
 <!--bah le formulaire il s'arrete là-->
 
 </body>
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
 
+  var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+  removeItemButton: true,
+  maxItemCount:5,
+  searchResultLimit:5,
+  renderChoiceLimit:5
+  });
+
+  });
+  </script>
 <script src="{% static 'js/jquery.js' %}"
 >
 </script>

@@ -1,3 +1,4 @@
+{% load static %}
 
 
     <!DOCTYPE html>
@@ -8,7 +9,11 @@
         <title>Poster une mission</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+
+    <!-- Font Awesome -->
     <body>
         <div class="container formulaire_itworker">
             <div class="title">Poster une mission</div>
@@ -26,8 +31,24 @@
                             <input name="intituler" type="text" placeholder="Intitulé de la mission" required>
                         </div>
                         <div class="input-box">
+                            
                             <span class="details">Domaine</span>
-                            <input name="domaine" type="text" placeholder="Domaine" required>
+                           
+                            <select name="domaine" id="choices-multiple-remove-button" placeholder="5 choix authorise" multiple>
+                                <option value="1">developement web</option>
+                                <option value="2">art grafique</option>
+                                <option value="3">developement mobile</option>
+                                <option value="4">Experte en sécurité informatique</option>
+                                <option value="5">'developpeur full-stack</option>
+                                <option value="6">Développeur back-end</option>
+                                <option value="7">Ingénieur DevOps</option>
+                                <option value="8">Architecte réseau</option>
+                                <option value="9">Architecte informatique</option>
+                                <option value="10">Testeur</option>
+                                <option value="11">Développeur de jeux vidéo</option>
+                                <option value="12">Infographiste</option>
+                            </select> 
+                            
                         </div>
                         
                         <div class="input-box">
@@ -36,8 +57,24 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Outils</span>
-                            <input name="outils" type="text" placeholder="Outils" required>
-                        </div>
+                            <select name="outils" id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
+                                <option value="1">CMS</option>
+                                <option value="2">Jquery</option>
+                                <option value="3">php</option>
+                                <option value="4">Django</option>
+                                <option value="5">laravel</option>
+                                <option value="6">Java</option>
+                                <option value="7">Javascript</option>
+                                <option value="8">Angular</option>
+                                <option value="9">Python</option>
+                                <option value="10">c</option>
+                                <option value="11">SQL</option>
+                                <option value="12">NOSQL</option>
+                                <option value="13">NodeJS</option>
+                                <option value="14">logiciel adobe</option>
+                                <option value="15">linux</option>
+                                
+                            </select>                         </div>
                         <div class="input-box">
                             <span class="details">Fourchette de prix</span>
                             <input name="fourcette_prix" type="number" placeholder="Fourchette de prix" required>
@@ -52,13 +89,28 @@
     
                     <br>
                     <div class="button">
-                        <input name="" type="submit" value="S'enrigistrer">
+                        <input name="" type="submit" value="Ajouter">
                     </div>
                 </form>
             </div>
-        </div>
-    
-        <style>
+            <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                
+                  var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+                  removeItemButton: true,
+                  maxItemCount:5,
+                  searchResultLimit:5,
+                  renderChoiceLimit:5
+                  });
+                
+                  });
+                  </script>
+
+               <style>
+            
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
             * {
                 margin: 0;
@@ -129,7 +181,7 @@
             }
             
             .user-details .input-box input[type=text],
-            input[type=number] {
+            input[type=number]{
                 height: 45px;
                 width: 100%;
                 outline: none;

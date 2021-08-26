@@ -1,173 +1,89 @@
 {% extends 'contents/parent.html' %}
 {% block content %}
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="..." alt="...">
-            <div class="carousel-caption">
-                ...
-            </div>
-        </div>
-        <div class="item">
-            <img src="..." alt="...">
-            <div class="carousel-caption">
-                ...
-            </div>
-        </div>
-        ...
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<div class="container-fluid col-12 d-flex position-relative justify-content-between flex-row p-5">
-
-    <!--    c'est petit carre arrondit la c'est ca-->
-
-        <!--        ceci est le contenu principale du c'est le main quoi alors tous les ressources seront chargées la bas-->
-
-    </div>
-    <div class="col-1"></div>
-    <div class="container-fluid col-8  d-flex flex-column">
-
-        {% comment %} <!-- <main style="box-shadow: none" class="main border-1  col-11 module p-5">
-<div class="content-fictif border rounded-6 rounded p-5">
-            <div class="cards w-50 "><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>
-            <div class="cards w-100"><div class="card_image  loading"></div></div>
-            <br>{{current_name}}
-            <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-            <div class="row col-3 mx-auto p-3 d-flex flex-row"> <a href="{% url 'postuler_it'%}"> <button class="  btn-black btn-small btn-rounded "> Poster </button></a></div>
-</div>
-            <br>
-            <div class="content-fictif border rounded-6 p-5">
-                <div class="cards w-50 "><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div class="cards w-100"><div class="card_image  loading"></div></div>
-                <br>
-                <div style="height: 150px" class="cards w-100"><div class="card_image  loading"></div></div>
-                <div class="row col-3 mx-auto p-3 d-flex flex-row"><button class="  btn-black btn-small btn-rounded "> Poster </button></div>
-            </div>
-        </main> --> {% endcomment %}
-        {% for mission in missions  %}
+{% load static %}
+<style>
+  .container_home{
+    height: 650px;
+    background-color: #F7D276;
+    
+}
+</style>
+<div class="slideshow position-relative d-flex  ">
+  <!-- <img src="fond_slider.png" name="slide" alt=""> -->
+    <div class="text_slider col-12 text-left p-5 m-5">
+      <p id="find_it" class=" text-center  mx-5 my-5">
+          find-IT 
+      </p>
+      <p class=" item-1 slogan mx-5 my-5">
+          Trouver votre it-worker<br>
       
-        <!-- <article class="media content-section">
-         <img class="rounded-circle article-img" src="media/{{ mission.logo }}" style="max-height:74px">
-         <div class="media-body">
-           <div class="article-metadata">
-             <a class="mr-2" href="#">{{ mission.domaine}}</a>
-             <small class="text-muted">{{mission.date_fin|date:"F d, Y" }}</small>
-           </div>
-           <h2><a class="article-title" href="">{{ mission.intituler}}</a></h2>
-           <p class="article-content">{{ mission.outils }}</p>
-         </div>
-         <button class="btn btn-success"> <a style="color: aliceblue; " href="{% url 'postuler_it' mission.id %}"> postuler </a></button>
-       </article> -->
+      </p> 
+      <p class="item-2 slogan mx-5 my-5">
+          Trouver une mission
+      </p>
+      <p class="item-3 slogan mx-5 my-5">
+          Tout le monde gagne
+
+      </p>
+    <div class="col-3 my-5 p-5 mx-auto">
+      <a href="{% url 'Formregistre' %}">
+        <button class="btn  btn-success btn-small rounded-2">Inscrivez-vous </button>
+      </a>
+   </div>
+  </div>
+</div>    
 
 
+</div>
 
-       <div class="col-12 m-2 bg-white  mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1" id="post">
-        <div class=" rounded-6 col-2 " id="logo-post">
-            <img class="rounded-circle article-img" id="logo" src="media/{{ mission.logo }}" style="max-height:74px">
-        </div>
-        <div class=" col-10  d-flex flex-column m-1" id="content-post">
-            <div class="col-12 w-100">
-                <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">création d'une
-                    {{ mission.intituler}}</h1>
-            </div>
+    <div class="container-fluid col-12 d-flex justify-content-between flex-row p-5">
 
-            <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
-                <span class="col-3   prix "> <span
-                        id="caution">Caution :</span> {{ mission.fourcette_prix }} </span>
-                <span class="col-3 date "> Du <span class="bg date" id="date_debut"> 10 Aout</span> au <span
-                        class="date text-danger" id="date_fin">21 Septembre</span> </span>
-            </div>
-            <div></div>
-            <div class=" text-justify col-12  " id="description_mission">
-                <p class="description p-2" id="description ">
-                    {{ mission.description |truncatechars:300 }}
-                </p>
+      <!--    c'est petit carre arrondit la c'est ca-->
+      <div class="container-fluid col-8 mx-auto  d-flex flex-column">
+          <main class="main border-0 d-flex flex-column col-12 module p-3" style="box-shadow: none">
+              <!--           LES POST SONT GERER LA PAR LA DIV#post-->
+              
+              
+                {% for mission in missions  %} 
 
-            </div>
-            <div class="col-6 mx-auto">
-                <a style="color: aliceblue; " href="{% url 'postuler_it' mission.id %}">   <button style="font-size: 12px !important;" class="btn btn-rounded btn-sm btn-dark">Postuler </button> </a>
-            </div>
-        </div>
+               <div class="col-12 m-2 bg-white p-3 mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1"
+                  id="post">
+                  
+                  <div class=" rounded-6 col-2 " id="logo-post">
+                      <img  id="logo"
+                      class="rounded-circle article-img" src="media/{{ mission.logo }}" style="max-height:74px"/>
+                  </div>
+                  <div class=" col-10  d-flex flex-column m-1" id="content-post">
+                      <div class="col-12 w-100">
+                          <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">
+                            {{ mission.intituler}}</h1>
+                      </div>
 
+                      <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
+                          <span class="col-3   prix "> <span
+                                  id="caution">Caution :</span>  {{ mission.fourcette_prix }} </span>
+                          <span class="col-3 date "> Du <span class="bg date" id="date_debut"> {{ mission.date_debut|date:"F d, Y" }}</span> au <span
+                                  class="date text-danger" id="date_fin"> {{ mission.date_fin|date:"F d, Y" }}</span> </span>
+                      </div>
+                      <div></div>
+                      <div class=" text-justify col-12  " id="description_mission">
+                          <p class="description p-2" id="description ">
+                            {{ mission.description | truncatechars:300}}
+                          </p>
 
-    </div>
-
-       {% endfor %}
+                      </div>
+                      <div class="col-6 mx-auto">
+                          <button class="btn btn-rounded btn-sm btn-dark" style="font-size: 11px !important;">Postuler
+                          </button>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
+          </main>
+     
+      
+    
+       
     </div>
 </div>
 {% endblock%}
-<style>
-
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-
-.article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
-}
-
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
-
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-</style>

@@ -1,62 +1,255 @@
-{% extends "contents/parent.html" %}
-{% block content%}
-<div class="container">
-<div class="col-12 m-2 bg-white p-3 mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1"
-id="post">
-<div class=" rounded-6 col-2 " id="logo-post">
-   <img class=" rounded border border-black p-2 mx-auto my-2" id="logo"
-        src="media/{{ mission.logo }}"/>
-</div>
-<div class=" col-10  d-flex flex-column m-1" id="content-post">
-   <div class="col-12 w-100">
-       <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">
-           {{ mission.intituler}}
-       </h1>
-       <h1 class=" border-black  border-bottom h1 py-2"></div>
+{% extends 'contents/parent.html' %}
+{% block content %}
+{% load static %}
 
-   <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
-       <span class="col-3   prix "> <span
-               id="caution">Caution :</span> {{mission.fourcette_prix}} fcfa </span>
-       <span class="col-3 date "> Du <span class="bg date" id="date_debut">{{mission.date_debut|date:"F d, Y" }}</span> au <span
-               class="date text-danger" id="date_fin">{{mission.date_fin|date:"F d, Y" }}</span> </span>
-   </div>
-   <div></div>
-   <div class=" text-justify col-12  " id="description_mission">
-       <p class="description p-2" id="description ">
-          {{mission.description |truncatechars:300}}  </p>
+<div class="col-12 mx-5 d-flex justify-content-between flex-row p-5">
+    <div class="sidebar-module p-2  col-3">
+        <!--            ceci un module c'est l'unité de base de notre site tous les elements sont des modules -->
+        <div id="profil" class="module position-relative shadow-1-strong">
+            <header class="header-module ">
+               
+                    {% if not mission.PE.logo %}
+                        <div class="image-profil" > 
+                            <img alt="" style="height: 60px !important; width: 60px !important;" class="rounded-circle article-img"  src="{% static 'image/profil-avatar-homme-icone-rond.png' %}">
+                               
+                        </div>
+                                    <small style="font-size: xx-small !important; padding-top: -25px !important;">
+                                        <a href=""  style="font-size: xx-small !important; padding-top: -25px !important;">Editer</a>
+                                    </small>
+                              
+                    {% else %}
+                     <div class="image-profil "> 
+                            <img  alt=""style="height: 60px !important; width: 60px !important;" class="rounded-circle article-img"  src="{{ mission.PE.logo.url }}">
+                        </div>
+                    {% endif %}
+                   
+                <div class="name_profil" style="margin-left:10px;padding-top: -10px;font-size: small !important;">
+                    <h4>
+                        <b>Nom:</b>
+                        <span  id="prenom"> 
+                        {{ mission.PE.nom }}</span>
+                    </h4>
+                    <h4>
+                        <b>username:</b>
+                        <span  style="text-transform: capitalize"> {{ user.get_username }}</span>
+                    </h4>
+                </div>
+            </header>
+            <div class="content_module  container d-flex flex-column mx-auto  my-auto">
+                <div class=" text col-12 " id="description">
+                   <p id=""> 
+                        <b>Ma presentation</b><br>
+                      {{ mission.PE.description | truncatechars:50 }}
+                    </p> 
+                    
+                </div>
+                <div class=" text col-12 " id="description">
+                    <p id=""> 
+                         <b>Dommaine d'expertige</b><br>
+                               {{ mission.PE.domaine | truncatechars:120}}
+                     </p> 
+                     
+                 </div>
+               
+            </div>
+            <footer class=" position-absolute bottom-0 footer_module">
+                <img alt="" src= "{% static 'image/bande_module2.png' %}">
+            </footer>
+        </div>
 
-   </div>
- 
-   {% for post in posts %}
-     
- 
-   <div class="col-12 m-2 bg-white p-3 mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1"
-  id="post">
-<div class=" rounded-6 col-2 " id="logo-post">
-   <img class=" rounded border border-black p-2 mx-auto my-2" id="logo"
-        src="media/{{ post.logo }}"/>
-</div>
-<div class=" col-10  d-flex flex-column m-1" id="content-post">
-   <div class="col-12 w-100">
-       <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">
-           {{ mission.intituler}}nom
-       </h1>
-       <h1 class=" border-black  border-bottom h1 py-2">
+        <br><br>
 
-       </div>
 
-   <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
-       <span class="col-3   prix "> <span
-               id="caution">Prix propose :</span> {{post.prix}} fcfa </span>
-      </span>
-   </div>
-   <div></div>
-   <div class=" text-justify col-12  " id="description_mission">
-       <p class="description p-2" id="description ">
-          {{post.description}}  </p>
+        <!--    c'est petit carre arrondit la c'est ca-->
+        <div class="sidebar ">
+            
+
+            <div class="competence my-5  overflow-hidden position-relative list-group module shadow-0   ">
+                <h1 class="head title p-2 border-bottom border-black h1">Mes Domaines</h1>
+                <ul class=" p-3 py-3 d-flex flex-column justify-content-center list list-unstyled" id="domaine">
+                    <li>
+                        Web Design
+                    </li>
+                    <li>
+                        Intelligence artificielle
+                    </li>
+                    <li>
+                        Cyber Sécurité
+                    </li>
+
+                </ul>
+                <footer class=" position-absolute bottom-0 footer_module">
+                    <img alt="" src= " {% static 'bande_module2.png' %}">
+                </footer>
+            </div>
+
+        </div>
+        <!--        ceci est le contenu principale du c'est le main quoi alors tous les ressources seront chargées la bas-->
+
+    </div>
+<p style="color: green;"></p>
+<!--    c'est la que s'arrete le sidebar-->
+    <div class="col-1"></div>
+    <div class="container-fluid col-8  d-flex flex-column">
+       
+        <main class="main border-0 d-flex flex-column col-11 module p-3" style="box-shadow: none">
+            <!--           LES POST SONT GERER LA PAR LA DIV#post-->
+            
+            <div class="col-12 m-2 bg-white p-3 mx-auto shadow-1-soft border d-flex flex-row rounded-6 border-1"
+                 id="post">
+              
+                     {% if mission.logo %}
+                        <div class=" rounded-6 col-2 " id="logo-post">
+
+                            <img class="rounded-circle article-img" src="{{ mission.logo }}" style="max-height:74px" id="logo"
+                            />
+                        </div>
+                     {% else %}
+                        <div class=" rounded-6 col-2 " id="logo-post">
+
+                            <img class=" rounded border border-black p-2 mx-auto my-2" id="logo"
+                            src="{% static 'image/icons8-computer-60%20(1).png' %}"/>
+                        </div>
+                     {% endif %}
+               
+                <div class=" col-10  d-flex flex-column m-1" id="content-post">
+                    <div class="col-12 w-100">
+                        <h1 class=" border-black  border-bottom h1 py-2" id="intitule_mission">
+                            {{ mission.intituler }}</h1>
+                    </div>
+
+                    <div class=" text-center  mx-auto w-100 col-12 " id="infos_mission">
+                        <span class="col-3   prix "> <span
+                                id="caution">Caution :</span> {{mission.fourcette_prix }}</span>
+                        <span class="col-3 date "> Du <span class="bg date" id="date_debut">{{ mission.date_debut}}</span> au <span
+                                class="date text-danger" id="date_fin">{{ mission.date_fin}}</span> </span>
+                    </div>
+                    <div></div>
+                    <div class=" text-justify col-12  " id="description_mission">
+                        <p class="description p-2" id="description ">
+                            {{mission.description | truncatechars:300}}
+                          </p>
+
+                    </div>
+                 
+                  
+        
+                </div>
+            </div>
+                 <h1 class="texoffer">
+                      Liste des postes:
+                  </h1>
+                  {% if posts %}
+                    
+                 
+                  {% for post in posts %} 
+                 
+                  <div class="container col-12 d-flex border-black border rounded-6 flex-row ">
+                    <div class=" rounded-6 d-flex flex-row justify-content-center col-1" id="logo-post">
+                    {% if not post.itworker.image %}
+                        
+                            <img alt="" style="height: 60px !important;" class="rounded-circle article-img" src="{% static 'image/profil-avatar-homme-icone-rond.png' %}">
+                              
+                    {% else %}
+                     
+                            <img  alt="" style="height: 60px !important; width: 60px !important;" class="rounded-circle article-img" class="rounded-circle article-img" src="{{ post.itworker.image.url }}">
+                       
+                    {% endif %}
+                    </div>
+                    <div id="content_postulant" class=" mx-auto col-11  content">
+                        <div class=" p-2 col-12
+                        " id="date_depose">
+                            <i>Deposé le {{post.date_postula | date:"F d, Y"}}</i>
+                        </div>
+                        <h1 id="nom_alias" >
+                           {{post.itworker.user.first_name}} {{post.itworker.user.last_name}} •• {{post.itworker.user.username}}
+                        </h1>
+                        <b>
+                            Montant proposé: <small> {{ post.prix}} </small>
+                         </b>
+                            <div id="proposition_prix" class="col-12">
+                                <a
+                  class="link"
+                  data-mdb-toggle="collapse"
+                  href="#collapseWithScrollbar"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                >
+                  lire la description
+                </a>
+                
+                <!-- Collapsed content -->
+                <div class="collapse col-12 text-justify bg-light scroll-section" id="collapseWithScrollbar"  >
+                 {{ post.description}}
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4 mx-auto">
+                       
+                        </div>
+                    <div class="col-1 mx-auto">
+                        <a href="{% url 'mail_a' post.itworker.id  mission.id %}">
+                            <button class="btn btn-rounded btn-sm btn-success" style="font-size: 11px !important;">Contacter
+                            </button>
+                       </a>
+                    </div>
+
+                    <div class="col-6 mx-auto">
+                       
+                    </div>
+                </div>
+            </div><br>
+                        </div>
+                    </div>
+                   
+                </div>
+                
+                <!-- Button triggers collapse -->
+               
+                  {% endfor %}
+                  {% else%}
+                  <div class="ocntainer">
+                      <h3>
+                          Vous n'avez pas encore de poste
+                      </h3>
+                  </div>
+                  {% endif %}
+         </main>
+    </div>
 </div>
-{% endfor %}
-</div>
-</div>
+<!-- Site footer -->
+<style>
+    .texoffer{
+        font-size: 3.5rem;
+        color: #636c72 !important;
+        font-weight: 500px !important;
+    }
+</style>
+ <script
+                  type="text/javascript"
+                  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+                ></script>
+<script>
+    let prenom = document.getElementById('#prenom')
+    if (prenom.textContent.length > 11) {
+        var prenom1 = prenom.textContent.split(" ");
+        prenom1[1] = prenom1[1].charAt(0);
+        prenom1 = prenom1.join(" ") + ".";
+    }
+    prenom.innerHTML = prenom1;
+    let intitule_mission = document.querySelector('#intitule_mission')
+    let lettre = intitule_mission.textContent
+    intitule_mission.innerHTML = lettre.charAt(0).toUpperCase() + lettre.slice(1);
+
+
+</script>
+<!-- Footer -->
+
+</body>
+
+</html>
+
+
 
 {% endblock%}

@@ -34,13 +34,13 @@ class Mission(models.Model):
     # id_mission = models.IntegerField(db_column='ID_MISSION')  # Field name made lowercase.
     PE = models.ForeignKey(EntrepriseParticulier,on_delete=models.CASCADE)
     logo = models.CharField(max_length=254,null=True)
-    domaine = models.CharField(max_length=254,null=True,choices=[('developement web','developement web'),('art grafique','art grafique'),('developement mobile','developement mobile'),('cybersecuriter','cybersecuriter')])
+    domaine = models.CharField(max_length=254,null=True)
     intituler = models.CharField( max_length=254, null=True)  # Field name made lowercase.
     date_debut = models.DateTimeField( auto_now_add=True)  # Field name made lowercase.
     date_fin = models.DateField( null=True)  # Field name made lowercase.
     description = models.TextField()  # Field name made lowercase.
     fourcette_prix = models.DecimalField( max_digits=8, decimal_places=0, null=True)  # Field name made lowercase.
-    outils = models.CharField( max_length=254, null=True)  # Field name made lowercase.
+    outils = models.CharField( max_length=254, null=True ) # Field name made lowercase.
     isPosted= models.BooleanField(default=False)  
 
 
