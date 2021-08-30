@@ -81,11 +81,12 @@ WSGI_APPLICATION = 'project_mise_en_relation.wsgi.application'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.mysql',
+         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'find_it',
         'USER': 'root',
         'PASSWORD':'',
-        'HOST': '127.0.0.1',
+        'HOST': '',
+        'PORT':5432
     }
 }
 
