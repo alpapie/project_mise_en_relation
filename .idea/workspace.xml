@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05bbf543-95b7-41d3-8b35-a44db4e3c9b4" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'" />
+    <list default="true" id="05bbf543-95b7-41d3-8b35-a44db4e3c9b4" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'">
+      <change beforePath="$PROJECT_DIR$/static/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/static/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +47,7 @@
       <workItem from="1629640172020" duration="833000" />
       <workItem from="1629975084813" duration="356000" />
       <workItem from="1630354525601" duration="369000" />
-      <workItem from="1630355221336" duration="4959000" />
+      <workItem from="1630355221336" duration="5276000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1628509643916</created>
@@ -152,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630360750177</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Merge remote-tracking branch 'origin/master'">
+      <created>1630361010123</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1630361010123</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
