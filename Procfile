@@ -1,0 +1,1 @@
+web: gunicorn project_mise_en_relation.wsgi
