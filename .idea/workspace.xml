@@ -1,7 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05bbf543-95b7-41d3-8b35-a44db4e3c9b4" name="Default Changelist" comment="25/08/2021" />
+    <list default="true" id="05bbf543-95b7-41d3-8b35-a44db4e3c9b4" name="Default Changelist" comment="30/08/2021 presque terminer">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_mise_en_relation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_mise_en_relation/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_mise_en_relation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_mise_en_relation/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/.idea/find-it.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/Nouveau dossier/Web_1920___1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/Nouveau dossier/Web_1920___1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/Nouveau dossier/Web_1920___1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/background_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/bande_module.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/bande_module2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/bg_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/espace.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/Web_1920___1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/Web_1920___1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/Web_1920___1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_ba.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_ba@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_bc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_bc@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_bh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_bh@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_cm@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_cn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_cn@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_co.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_co@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_cp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_cp@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/motif_site_x@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/profil-avatar-homme-icone-rond.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-it/profil-avatar-homme-icone-rond@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/background_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/bande_module.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/bande_module2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/bg_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/espace.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/mdb.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/mdb.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/motif_site.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/profil-avatar-homme-icone-rond.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/styleForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/find-itt/workspace.code-workspace" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/img0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/img101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/img19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/js/jquery.easing.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/js/vendor/jquery-1.12.4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/js/vendor/modernizr-3.6.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/mdb.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/mdb.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/module.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/motif_site.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/note.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/poster_mission.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/postuler_mission.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/profil-avatar-homme-icone-rond.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/styleForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_find-it-main/workspace.code-workspace" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +111,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,6 +128,8 @@
       <workItem from="1629287240546" duration="328000" />
       <workItem from="1629640172020" duration="833000" />
       <workItem from="1629975084813" duration="356000" />
+      <workItem from="1630354525601" duration="369000" />
+      <workItem from="1630355221336" duration="4634000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1628509643916</created>
@@ -128,7 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629975172616</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="30/08/2021 presque terminer">
+      <created>1630354663316</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1630354663316</updated>
+    </task>
+    <task id="LOCAL-00014" summary="30/08/2021 presque terminer">
+      <created>1630354689259</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1630354689259</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +256,7 @@
     <MESSAGE value="22/08/2021" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="25/08/2021" />
-    <option name="LAST_COMMIT_MESSAGE" value="25/08/2021" />
+    <MESSAGE value="30/08/2021 presque terminer" />
+    <option name="LAST_COMMIT_MESSAGE" value="30/08/2021 presque terminer" />
   </component>
 </project>

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^x+w=)jg)u-^lb8zei2-l4)juj$wz5o4d$-=!e8s*b7q-g6*mv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['findIt.herokuapp.com']
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Application definition
@@ -50,7 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'whitenoise.middleware,whiteNoiseMiddleware',
+#     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project_mise_en_relation.urls'
@@ -152,3 +154,14 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ndiayemamoudou0908@gmail.com'
 EMAIL_HOST_PASSWORD ='ndiaye1998@#/'
+
+if os.environ.get('ENV')=='PRODUCTION':
+    PROJECT_ROOT=os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT=os.join(PROJECT_ROOT,'staticfiles')
+    STATICFILES_DIRS=(
+                        os.path.join(PROJECT_ROOT,'static')
+    )
+    STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    db_from_en=dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
