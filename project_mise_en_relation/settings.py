@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^x+w=)jg)u-^lb8zei2-l4)juj$wz5o4d$-=!e8s*b7q-g6*mv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['findIt.herokuapp.com']
+ALLOWED_HOSTS = ['finitit.herokuapp.com']
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Application definition
