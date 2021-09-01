@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^x+w=)jg)u-^lb8zei2-l4)juj$wz5o4d$-=!e8s*b7q-g6*mv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['findIt.herokuapp.com']
+ALLOWED_HOSTS = ['finitit.herokuapp.com']
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Application definition
@@ -155,13 +155,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ndiayemamoudou0908@gmail.com'
 EMAIL_HOST_PASSWORD ='ndiaye1998@#/'
 
-if os.environ.get('ENV')=='PRODUCTION':
-    PROJECT_ROOT=os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT=os.path.join(PROJECT_ROOT,'staticfiles')
-    STATICFILES_DIRS=(
-                        os.path.join( PROJECT_ROOT,'static' ),
-    )
-    STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-    db_from_env=dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+# if os.environ.get('ENV')=='PRODUCTION':
+#     PROJECT_ROOT=os.path.dirname(os.path.abspath(__file__))
+#     STATIC_ROOT=os.path.join(PROJECT_ROOT,'staticfiles')
+#     STATICFILES_DIRS=(
+#                         os.path.join( PROJECT_ROOT,'static' ),
+#     )
+#     STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+#
+#     db_from_env=dj_database_url.config(conn_max_age=500)
+#     DATABASES['default'].update(db_from_env)
