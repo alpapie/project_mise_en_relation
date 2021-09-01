@@ -12,11 +12,8 @@ from .forms import ITform,Uform,PEform,pe_uform,Conect,missionForm,PostForm
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings 
-# Create your views here.
+# Create your views
 
-
-
-isPosted=False
 #se view traite l'index on recuper et on n'affiche quelle donne
 def index(request):
     if request.user.is_authenticated and request.user.is_superuser==0:
