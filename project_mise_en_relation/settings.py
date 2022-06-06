@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+import pymysql
+from django.conf import global_settings
 
+pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +30,7 @@ SECRET_KEY = 'django-insecure-^x+w=)jg)u-^lb8zei2-l4)juj$wz5o4d$-=!e8s*b7q-g6*mv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['finitit.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Application definition
@@ -39,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'admin_volt.apps.AdminVoltConfig',
     'find_it',
+    
 ]
 
 MIDDLEWARE = [
@@ -50,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware,whiteNoiseMiddleware',
+    
 
 ]
 
@@ -67,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -79,15 +85,15 @@ WSGI_APPLICATION = 'project_mise_en_relation.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'find_it',
+   'default': {
+         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'find_its',
         'USER': 'root',
         'PASSWORD':'',
-        'HOST': '',
-        'PORT':5432
+        'HOST': '127.0.0.1',
     }
 }
+
 
 
 # Password validation
@@ -107,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
@@ -155,13 +162,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ndiayemamoudou0908@gmail.com'
 EMAIL_HOST_PASSWORD ='ndiaye1998@#/'
 
-# if os.environ.get('ENV')=='PRODUCTION':
-#     PROJECT_ROOT=os.path.dirname(os.path.abspath(__file__))
-#     STATIC_ROOT=os.path.join(PROJECT_ROOT,'staticfiles')
-#     STATICFILES_DIRS=(
-#                         os.path.join( PROJECT_ROOT,'static' ),
-#     )
-#     STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
-#
-#     db_from_env=dj_database_url.config(conn_max_age=500)
-#     DATABASES['default'].update(db_from_env)
+if os.environ.get('ENV')=='PRODUCTION':
+    PROJECT_ROOT=os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT=os.path.join(PROJECT_ROOT,'staticfiles')
+    STATICFILES_DIRS=(
+                        os.path.join( PROJECT_ROOT,'static' ),
+    )
+    STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    db_from_env=dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)

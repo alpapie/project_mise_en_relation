@@ -1,0 +1,75 @@
+[33mb9ab065[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: reset: moving to b9ab065
+[33m74632b1[m HEAD@{1}: reset: moving to 74632b1
+[33mb9ab065[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{2}: reset: moving to b9ab065
+[33m74632b1[m HEAD@{3}: reset: moving to 74632b1
+[33mb9ab065[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{4}: reset: moving to b9ab065
+[33m1353b56[m[33m ([m[1;31morigin/master[m[33m, [m[1;31mheroku/master[m[33m)[m HEAD@{5}: reset: moving to HEAD
+[33m1353b56[m[33m ([m[1;31morigin/master[m[33m, [m[1;31mheroku/master[m[33m)[m HEAD@{6}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m74632b1[m HEAD@{7}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33m4592d5c[m HEAD@{8}: commit: Merge remote-tracking branch 'origin/master'
+[33m86d68b3[m HEAD@{9}: commit: Merge remote-tracking branch 'origin/master'
+[33md0305c5[m HEAD@{10}: commit: Merge remote-tracking branch 'origin/master'
+[33mc3559b5[m HEAD@{11}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m3a7a4ff[m HEAD@{12}: commit: Merge remote-tracking branch 'origin/master'
+[33m63ae40c[m HEAD@{13}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33m5b47080[m HEAD@{14}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m4be19a4[m HEAD@{15}: commit (amend): heruku app
+[33me4ddf24[m HEAD@{16}: rebase (finish): returning to refs/heads/master
+[33me4ddf24[m HEAD@{17}: rebase (start): checkout e4ddf24b443561653d7e369e7e3fe15ac63c3b3b
+[33m8ea74a8[m HEAD@{18}: commit (amend): papito heroku
+[33m63f056f[m HEAD@{19}: commit (amend): papitog
+[33m0c85fa3[m HEAD@{20}: commit (amend): papito
+[33md5e591d[m HEAD@{21}: commit: papito
+[33me4ddf24[m HEAD@{22}: rebase (finish): returning to refs/heads/master
+[33me4ddf24[m HEAD@{23}: rebase (start): checkout origin/master
+[33m8dc7808[m HEAD@{24}: commit (amend): alpapi
+[33mebbb90b[m HEAD@{25}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33me4ddf24[m HEAD@{26}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m71d854c[m HEAD@{27}: commit (amend): jjjj
+[33mcc4c0ee[m HEAD@{28}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m483c265[m HEAD@{29}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33mebac2fd[m HEAD@{30}: merge origin/master: Merge made by the 'recursive' strategy.
+[33mede5ad3[m HEAD@{31}: commit (amend): ghj
+[33mdb0875c[m HEAD@{32}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m8144b68[m HEAD@{33}: commit: heroku final
+[33m65545a6[m HEAD@{34}: commit (amend): heroku final
+[33m817181c[m HEAD@{35}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m6f2e714[m HEAD@{36}: commit (amend): heroku dgeyue
+[33m8d88f9a[m HEAD@{37}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m41774e0[m HEAD@{38}: commit (amend): heroku
+[33mc4087f5[m HEAD@{39}: commit (amend): heroku
+[33mb44146d[m HEAD@{40}: commit (merge): heroku
+[33m5eeeea7[m HEAD@{41}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33me2a6100[m HEAD@{42}: commit: Merge remote-tracking branch 'origin/master'
+[33mb7a52e1[m HEAD@{43}: merge origin/master: Merge made by the 'recursive' strategy.
+[33mbb01e53[m HEAD@{44}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33md1dfb54[m HEAD@{45}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m80ea245[m HEAD@{46}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33m521b980[m HEAD@{47}: merge origin/master: Merge made by the 'recursive' strategy.
+[33mb9ab065[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{48}: commit (amend): 30/08/2021 presque terminer
+[33m9b3ab3d[m HEAD@{49}: commit (amend): 30/08/2021 presque terminer
+[33m1c20d4a[m HEAD@{50}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m275d6ed[m HEAD@{51}: commit (amend): 25/08/2021
+[33mcfdd027[m HEAD@{52}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33mc110201[m HEAD@{53}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m93927b9[m HEAD@{54}: commit (amend): ouff en fin
+[33md60a72c[m HEAD@{55}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m562a0b9[m HEAD@{56}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33mcf99d6c[m HEAD@{57}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33mb2b88f6[m HEAD@{58}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33m0be48ab[m HEAD@{59}: merge origin/master: Merge made by the 'recursive' strategy.
+[33m81213af[m HEAD@{60}: commit (amend): 18/08/2021
+[33m4b9d6f7[m HEAD@{61}: commit (amend): 18/08/2021
+[33m22518dc[m HEAD@{62}: checkout: moving from master to master
+[33m22518dc[m HEAD@{63}: commit: 18/08/2021
+[33ma2ee262[m HEAD@{64}: commit (amend): Merge remote-tracking branch 'origin/master'
+[33m42f4e60[m HEAD@{65}: commit (merge): Merge remote-tracking branch 'origin/master'
+[33m4b268ab[m HEAD@{66}: commit: comit du 11 aut 2021 et j'ai beaucoup avance
+[33m72848bd[m HEAD@{67}: commit (amend): comit du 11 aut 2021 et j'ai beaucoup avance
+[33m0977314[m HEAD@{68}: commit: comit 2
+[33me754ecc[m HEAD@{69}: commit (amend): comit 1
+[33mce24326[m HEAD@{70}: commit: comit 1
+[33mcd8b030[m HEAD@{71}: commit: 1
+[33mb14ced4[m HEAD@{72}: commit: first commit
+[33mdca5ff2[m HEAD@{73}: commit: first commit
+[33m67ff6e0[m HEAD@{74}: commit (initial): first commit
